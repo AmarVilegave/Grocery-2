@@ -1,0 +1,52 @@
+<div class="container">
+  <div
+    *ngFor="let product of products; let i = index"
+    class="card"
+    id="{{ product.id }}"
+  >
+    <img [src]="product.image" [alt]="product.name" />
+
+    <div class="details">
+      <div class="two">
+        <div class="name">
+          {{ product.name }}
+        </div>
+        <span class="favorite {{ !favorite ? '' : 'red' }}"
+          ><i (click)="onWishlisted()" class="fa-solid fa-heart"></i
+        ></span>
+      </div>
+
+      <div class="one">
+        <div class="weight">
+          {{ product.weight }}
+        </div>
+        <div class="price">
+          {{ product.price | currency : "INR" }}
+        </div>
+      </div>
+
+      <div class="add">
+        <button
+          *ngIf="!productExist(product.id)"
+          (click)="onClick(product)"
+          class="add-btn"
+        >
+          Add
+        </button>
+        <div class="btns" *ngIf="productExist(product.id)">
+          <div
+            (click)="onMinus(product.id, product.quantity)"
+            class="fa-solid fa-minus"
+          ></div>
+
+          {{ prodQuantity(product.id) }}
+          <div
+            (click)="onPlus(product.id, product.quantity)"
+            class="fa-solid fa-plus"
+            disabled="checkPlusQuantity(product.id)"
+          ></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

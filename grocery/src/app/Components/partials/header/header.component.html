@@ -1,0 +1,29 @@
+<header>
+  <div class="container">
+    <a routerLink="/" class="title"
+      >Grocery <i class="fa-solid fa-bag-shopping"></i
+    ></a>
+    <app-search></app-search>
+    <nav>
+      <ul>
+        <li>
+          <a routerLink="/login" class="title">Login</a>
+        </li>
+        <li class="profile-container">
+          <a routerLink="/dashboard">Username</a>
+          <div class="details">
+            <a routerLink="/profile">Profile</a>
+            <a routerLink="/orders">Orders</a>
+            <a>Logout</a>
+          </div>
+        </li>
+        <li>
+          <a routerLink="/cart"
+            >Cart <i class="fa-solid fa-cart-shopping"></i
+            ><span>{{ cartQuantity }}</span></a
+          >
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
